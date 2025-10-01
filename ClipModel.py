@@ -15,7 +15,7 @@ model_clip, preprocess_clip = clip.load("ViT-B/32", device=device)
 with open("image_captions.json", "r") as f:
     captions_dict = json.load(f)
 
-image_folder = r"C:\Users\vedik\Desktop\DLProject\iCloudPhotos"
+image_folder = r"C:\Users\adity\Downloads\Photo-Gallery-LLM\iCloudPhotos"
 image_files = list(captions_dict.keys())
 
 # --- Precompute image embeddings ---

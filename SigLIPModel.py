@@ -11,7 +11,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # --- Load SigLIP Model and Processor ---
 model_name_siglip = "google/siglip-base-patch16-224"
-processor_siglip = SiglipProcessor.from_pretrained(model_name_siglip)
+processor_siglip = SiglipProcessor.from_pretrained(model_name_siglip, use_fast=True)
 model_siglip = SiglipModel.from_pretrained(model_name_siglip).to(device)
 print("SigLIP model loaded successfully.")
 
@@ -19,7 +19,7 @@ print("SigLIP model loaded successfully.")
 with open("image_captions.json", "r") as f:
     captions_dict = json.load(f)
 
-image_folder = r"C:\Users\vedik\Desktop\DLProject\iCloudPhotos"
+image_folder = r"C:\Users\adity\Downloads\Photo-Gallery-LLM\iCloudPhotos"
 image_files = list(captions_dict.keys())
 
 # --- Precompute image embeddings with SigLIP ---

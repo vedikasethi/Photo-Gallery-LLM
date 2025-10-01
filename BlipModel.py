@@ -12,7 +12,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 # --- Load BLIP Model and Processor ---
 # We use a model fine-tuned for Image-Text Matching (itm)
 model_name_blip = "Salesforce/blip-itm-base-coco"
-processor_blip = BlipProcessor.from_pretrained(model_name_blip)
+processor_blip = BlipProcessor.from_pretrained(model_name_blip, use_fast=True)
 model_blip = BlipModel.from_pretrained(model_name_blip).to(device)
 print("BLIP model loaded successfully.")
 
@@ -20,7 +20,7 @@ print("BLIP model loaded successfully.")
 with open("image_captions.json", "r") as f:
     captions_dict = json.load(f)
 
-image_folder = r"C:\Users\vedik\Desktop\DLProject\iCloudPhotos"
+image_folder = r"C:\Users\adity\Downloads\Photo-Gallery-LLM\iCloudPhotos"
 image_files = list(captions_dict.keys()) 
 
 # --- Precompute image embeddings with BLIP ---

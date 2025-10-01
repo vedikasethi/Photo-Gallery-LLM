@@ -3,23 +3,20 @@ import numpy as np
 
 # --- Plotting Comparison ---
 
-# Assumes you have these variables from running all three scripts:
-# top1_acc, top5_acc (from CLIP script)
-# top1_acc_blip, top5_acc_blip (from BLIP script)
-# top1_acc_siglip, top5_acc_siglip (from SigLIP script)
-
-# Example data (replace with your actual results)
-top1_acc = 92.50 
-top5_acc = 98.00
-top1_acc_blip = 94.20
-top5_acc_blip = 99.10
-top1_acc_siglip = 95.80
-top5_acc_siglip = 99.50
+#actual result
+top1_acc_clip = 55.00 
+top5_acc_clip = 95.00
+top1_acc_blip = 5.00
+top5_acc_blip = 30.00
+top1_acc_siglip = 5.00
+top5_acc_siglip = 35.00
+top1_acc_blip2 = 0.00  # Update this after running BLIP-2
+top5_acc_blip2 = 0.00  # Update this after running BLIP-2
 # ---
 
-models = ["CLIP", "BLIP", "SigLIP"]
-top1_scores = [top1_acc, top1_acc_blip, top1_acc_siglip]
-top5_scores = [top5_acc, top5_acc_blip, top5_acc_siglip]
+models = ["CLIP", "BLIP", "SigLIP", "BLIP-2"]
+top1_scores = [top1_acc_clip, top1_acc_blip, top1_acc_siglip, top1_acc_blip2]
+top5_scores = [top5_acc_clip, top5_acc_blip, top5_acc_siglip, top5_acc_blip2]
 
 x = np.arange(len(models))  # the label locations
 width = 0.35  # the width of the bars
@@ -30,7 +27,7 @@ rects2 = ax.bar(x + width/2, top5_scores, width, label='Top-5 Accuracy')
 
 # Add some text for labels, title and axes ticks
 ax.set_ylabel('Accuracy (%)')
-ax.set_title('Image Retrieval Accuracy: CLIP vs. BLIP vs. SigLIP')
+ax.set_title('Image Retrieval Accuracy: CLIP vs. BLIP vs. SigLIP vs. BLIP-2')
 ax.set_xticks(x)
 ax.set_xticklabels(models)
 ax.set_ylim(0, 105)
