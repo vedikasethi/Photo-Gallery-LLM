@@ -1,1 +1,6 @@
-./user_gallery
+user_gallery/
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
